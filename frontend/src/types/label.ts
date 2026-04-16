@@ -8,14 +8,14 @@ export type Label = {
     totalLabels: number,
 }
 
-export type OrderLine = {
+export type LabelOrder = {
     label: Label,
     labelRollsOrdered: number
 }
 
 export type ClientOrder = {
     foilLength: number,
-    lines: OrderLine[],
+    labelOrders: LabelOrder[],
 }
 
 export type CalculationResult = {
