@@ -12,7 +12,12 @@ export default function LabelList({labelOrders, onValueChange, onAddButtonClicke
     return (
         <div>
             {labelOrders.map((labelOrder) => (
-                <LabelCard key={labelOrder.id} labelOrder={labelOrder} onValueChange={onValueChange} onRemoveButtonClick={() => onRemoveButtonClicked(labelOrder)} />
+                <LabelCard
+                    key={labelOrder.id}
+                    labelOrder={labelOrder}
+                    onValueChange={onValueChange}
+                    onRemoveButtonClick={() => onRemoveButtonClicked(labelOrder)}
+                />
             ))}
             <button onClick={onAddButtonClicked}>Add label</button>
         </div>
