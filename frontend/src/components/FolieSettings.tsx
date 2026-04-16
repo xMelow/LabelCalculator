@@ -5,8 +5,6 @@ type FolieSettingsProps = {
 }
 
 export default function FolieSettings({ folieTotalLength, onFolieChange }: FolieSettingsProps) {
-
-
     return (
         <div>
             <label htmlFor="totalFolieLength">Folie total Length (mm)</label>
