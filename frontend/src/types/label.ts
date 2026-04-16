@@ -9,6 +9,7 @@ export type Label = {
 }
 
 export type LabelOrder = {
+    id: number,
     label: Label,
     labelRollsOrdered: number
 }
