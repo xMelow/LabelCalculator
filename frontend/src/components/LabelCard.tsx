@@ -8,7 +8,7 @@ type LabelCardProps = {
 
 export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClick}: LabelCardProps) {
     return (
-        <div className="bg-white shadow-2xl rounded-2xl p-4 mb-3">
+        <div className="bg-white border border-altec-teal rounded-2xl p-4 mb-3">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-bold text-2xl text-altec-dark">
                     {labelOrder.label.articleNumber || "New Label"}

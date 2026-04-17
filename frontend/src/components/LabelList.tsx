@@ -10,7 +10,7 @@ type LabelListProps = {
 
 export default function LabelList({labelOrders, onValueChange, onAddButtonClicked, onRemoveButtonClicked}: LabelListProps) {
     return (
-        <div>
+        <div className="bg-white shadow-2xl rounded-2xl p-4">
             {labelOrders.map((labelOrder) => (
                 <LabelCard
                     key={labelOrder.id}
@@ -19,7 +19,9 @@ export default function LabelList({labelOrders, onValueChange, onAddButtonClicke
                     onRemoveButtonClick={() => onRemoveButtonClicked(labelOrder)}
                 />
             ))}
-            <button onClick={onAddButtonClicked}>Add label</button>
+            <button
+                className="w-full mt-4 py-2 border-2 border-dashed border-gray-300 rounded-xl text-gray-400 hover:border-altec-teal hover:text-altec-teal transition-colors"
+                onClick={onAddButtonClicked}>+ Add label</button>
         </div>
     )
 }
