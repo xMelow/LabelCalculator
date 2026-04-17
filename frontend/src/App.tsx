@@ -51,10 +51,17 @@ export default function App() {
     }
 
     return (
-        <>
-            <h1>Label Calculator</h1>
+        <div className="min-h-screen bg-altec-light">
+            <header className="bg-altec-teal px-8 py-4 shadow-md flex items-center justify-between">
+                <div>
+                    <h1 className="text-white text-4xl font-bold tracking-wide">
+                        Ink Folie Calculator
+                    </h1>
+                </div>
+                <img src="/src/assets/logo2.png" alt="logo" className="h-17 w-auto"/>
+            </header>
 
-            <div>
+            <main className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-6">
                 <FolieSettings
                     folieTotalLength={clientOrder.foilLength}
                     onFolieChange={(e) => setClientOrder({ ...clientOrder, foilLength: e})}
@@ -70,7 +77,7 @@ export default function App() {
                 <Results
                     calculationResult={result}
                 />
-            </div>
-        </>
+            </main>
+        </div>
     )
 }
