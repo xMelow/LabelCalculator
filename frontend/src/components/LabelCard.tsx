@@ -10,7 +10,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
     return (
         <div className="bg-white border border-altec-teal rounded-2xl p-4 mb-3">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="font-bold text-2xl text-altec-dark">
+                <h2 className="font-bold text-xl text-altec-dark">
                     {labelOrder.label.articleNumber || "New Label"}
                 </h2>
                 <button className="p-2 border-altec-light-blue bg-altec-light-blue border-2 rounded-2xl hover:bg-altec-teal hover:text-white"
@@ -33,7 +33,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                     <input
                         className="input-field"
                         type={"number"}
-                        value={labelOrder.label.height}
+                        value={labelOrder.label.height === 0 ? "" : labelOrder.label.height}
                         onChange={(e) => onValueChange(labelOrder.id, "height", Number(e.target.value))}
                     />
                 </div>
@@ -43,7 +43,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                     <input
                         className="input-field"
                         type={"number"}
-                        value={labelOrder.label.gap}
+                        value={labelOrder.label.gap === 0 ? "" : labelOrder.label.gap}
                         onChange={(e) => onValueChange(labelOrder.id, "gap", Number(e.target.value))}
                     />
                 </div>
@@ -63,7 +63,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                     <input
                         className="input-field"
                         type={"number"}
-                        value={labelOrder.label.totalLabels}
+                        value={labelOrder.label.totalLabels === 0 ? "" : labelOrder.label.totalLabels}
                         onChange={(e) => onValueChange(labelOrder.id, "totalLabels", Number(e.target.value))}
                     />
                 </div>

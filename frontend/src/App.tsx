@@ -62,6 +62,10 @@ export default function App() {
             </header>
 
             <main className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-6">
+                <Results
+                    calculationResult={result}
+                />
+
                 <FolieSettings
                     folieTotalLength={clientOrder.foilLength}
                     onFolieChange={(e) => setClientOrder({ ...clientOrder, foilLength: e})}
@@ -72,10 +76,6 @@ export default function App() {
                     onValueChange={(id, param, value) => updateLabelValue(id, param, value)}
                     onAddButtonClicked={() => addClientOrder()}
                     onRemoveButtonClicked={(labelOrder) => removeLabelOrder(labelOrder)}
-                />
-
-                <Results
-                    calculationResult={result}
                 />
             </main>
         </div>
