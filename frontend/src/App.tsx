@@ -61,7 +61,7 @@ export default function App() {
                 <img src="/src/assets/logo2.png" alt="logo" className="h-17 w-auto"/>
             </header>
 
-            <main className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-6">
+            <main className="max-w-4xl mx-auto px-6 py-8 flex flex-col gap-4">
                 <FolieSettings
                     folieTotalLength={clientOrder.foilLength}
                     onFolieChange={(e) => setClientOrder({ ...clientOrder, foilLength: e})}

@@ -5,7 +5,15 @@ type ResultsProps = {
 }
 
 export default function Results({ calculationResult }: ResultsProps) {
-    return(
+    if (calculationResult.foilRollsNeeded === 0) {
+        return (
+            <div>
+                <p>Add labels to see result</p>
+            </div>
+        )
+    }
+
+    return (
         <div>
             <h2>Results</h2>
             <div>
