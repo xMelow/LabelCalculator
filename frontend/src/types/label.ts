@@ -22,4 +22,5 @@ export type ClientOrder = {
 export type CalculationResult = {
     foilNeeded: number,
     foilRollsNeeded: number,
+    foilUsagePercentage: number
 }

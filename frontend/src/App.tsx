@@ -2,14 +2,17 @@ import {useState} from "react";
 import type {ClientOrder, Label, LabelOrder} from "./types/label.ts";
 import FolieSettings from "./components/FolieSettings.tsx";
 import LabelList from "./components/LabelList.tsx";
+import {calculateFolieAmount} from "./utils/calculator.ts";
+import Results from "./components/Results.tsx";
 
 let nextId = 0;
 
 export default function App() {
     const [clientOrder, setClientOrder] = useState<ClientOrder>({
-        foilLength: 300,
+        foilLength: 300000,
         labelOrders: []
     })
+    const result = calculateFolieAmount(clientOrder)
 
     function addClientOrder() {
         const newOrder: LabelOrder = {
@@ -62,6 +65,10 @@ export default function App() {
                     onValueChange={(id, param, value) => updateLabelValue(id, param, value)}
                     onAddButtonClicked={() => addClientOrder()}
                     onRemoveButtonClicked={(labelOrder) => removeLabelOrder(labelOrder)}
+                />
+
+                <Results
+                    calculationResult={result}
                 />
             </div>
         </>
