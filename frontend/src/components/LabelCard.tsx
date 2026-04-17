@@ -11,15 +11,15 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
         <div className="bg-white border border-altec-teal rounded-2xl p-4 mb-3">
             <div className="flex justify-between items-center mb-4">
                 <h2 className="font-bold text-xl text-altec-dark">
-                    {labelOrder.label.articleNumber || "New Label"}
+                    {labelOrder.label.articleNumber || "Nieuw Label"}
                 </h2>
                 <button className="p-2 border-altec-light-blue bg-altec-light-blue border-2 rounded-2xl hover:bg-altec-teal hover:text-white"
-                        onClick={onRemoveButtonClick}>Remove</button>
+                        onClick={onRemoveButtonClick}>Verwijder</button>
             </div>
 
             <div className="grid grid-cols-3 gap-4">
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Article number</label>
+                    <label className="input-label">Artikel nummer</label>
                     <input
                         className="input-field"
                         type={"text"}
@@ -29,7 +29,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Label height (mm)</label>
+                    <label className="input-label">Label hoogte (mm)</label>
                     <input
                         className="input-field"
                         type={"number"}
@@ -39,7 +39,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Gap (mm)</label>
+                    <label className="input-label">Tussenruimte (mm)</label>
                     <input
                         className="input-field"
                         type={"number"}
@@ -49,7 +49,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Labels per row</label>
+                    <label className="input-label">Labels per rij</label>
                     <input
                         className="input-field"
                         type={"number"}
@@ -59,7 +59,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Total labels per roll</label>
+                    <label className="input-label">Totaal labels per rol</label>
                     <input
                         className="input-field"
                         type={"number"}
@@ -69,7 +69,7 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Rolls ordered</label>
+                    <label className="input-label">Rolen besteld</label>
                     <input
                         className="input-field"
                         type={"number"}

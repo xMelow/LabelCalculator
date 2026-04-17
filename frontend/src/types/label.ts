@@ -23,5 +23,13 @@ export type CalculationResult = {
     foilNeeded: number,
     foilRollsNeeded: number,
     foilEfficiency: number,
-    foilLastUsedPercentage: number
+    foilLastUsedPercentage: number,
+    breakDown: LabelBreakdown[]
+}
+
+export type LabelBreakdown = {
+    articleNumber: string,
+    foilUsed: number,
+    foilRollsNeeded: number,
+    foilUsedPercentage: number
 }

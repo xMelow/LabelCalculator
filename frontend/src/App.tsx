@@ -32,7 +32,6 @@ export default function App() {
     }
 
     function updateLabelValue(id: number, param: keyof Label | "labelRollsOrdered", value: number | string) {
-        console.log("updating: ", id, param, value)
         const updatedOrders = clientOrder.labelOrders.map(order => {
             if (order.id !== id) return order
 
@@ -55,7 +54,7 @@ export default function App() {
             <header className="bg-altec-teal px-8 py-4 shadow-md flex items-center justify-between">
                 <div>
                     <h1 className="text-white text-4xl font-bold tracking-wide">
-                        Ink Folie Calculator
+                        Inkt Folie Calculator
                     </h1>
                 </div>
                 <img src="/src/assets/logo2.png" alt="logo" className="h-17 w-auto"/>
@@ -66,16 +65,16 @@ export default function App() {
                     calculationResult={result}
                 />
 
-                <FolieSettings
-                    folieTotalLength={clientOrder.foilLength}
-                    onFolieChange={(e) => setClientOrder({ ...clientOrder, foilLength: e})}
-                />
-
                 <LabelList
                     labelOrders={clientOrder.labelOrders}
                     onValueChange={(id, param, value) => updateLabelValue(id, param, value)}
                     onAddButtonClicked={() => addClientOrder()}
                     onRemoveButtonClicked={(labelOrder) => removeLabelOrder(labelOrder)}
+                />
+
+                <FolieSettings
+                    folieTotalLength={clientOrder.foilLength}
+                    onFolieChange={(e) => setClientOrder({ ...clientOrder, foilLength: e})}
                 />
             </main>
         </div>
