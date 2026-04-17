@@ -29,6 +29,7 @@ export default function App() {
     }
 
     function updateLabelValue(id: number, param: keyof Label | "labelRollsOrdered", value: number | string) {
+        console.log("updating: ", id, param, value)
         const updatedOrders = clientOrder.labelOrders.map(order => {
             if (order.id !== id) return order
 
