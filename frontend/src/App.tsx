@@ -1,5 +1,5 @@
 import {useState} from "react";
-import type {ClientOrder, LabelOrder} from "./types/label.ts";
+import type {ClientOrder, Label, LabelOrder} from "./types/label.ts";
 import FolieSettings from "./components/FolieSettings.tsx";
 import LabelList from "./components/LabelList.tsx";
 
@@ -28,8 +28,17 @@ export default function App() {
         nextId += 1;
     }
 
-    function updateLabelValue(param: string, value: number | string) {
-        // update the label in the labelOrder
+    function updateLabelValue(id: number, param: keyof Label | "labelRollsOrdered", value: number | string) {
+        const updatedOrders = clientOrder.labelOrders.map(order => {
+            if (order.id !== id) return order
+
+            if (param === "labelRollsOrdered") {
+                return { ...order, labelRollsOrdered: Number(value) }
+            } else {
+                return { ...order, label: { ...order.label, [param]: value}}
+            }
+        })
+        setClientOrder({...clientOrder, labelOrders: updatedOrders})
     }
 
     function removeLabelOrder(labelOrder: LabelOrder) {
@@ -49,7 +58,7 @@ export default function App() {
 
                 <LabelList
                     labelOrders={clientOrder.labelOrders}
-                    onValueChange={(param, value) => updateLabelValue(param, value)}
+                    onValueChange={(id, param, value) => updateLabelValue(id, param, value)}
                     onAddButtonClicked={() => addClientOrder()}
                     onRemoveButtonClicked={(labelOrder) => removeLabelOrder(labelOrder)}
                 />

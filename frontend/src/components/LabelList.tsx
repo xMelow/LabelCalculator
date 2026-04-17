@@ -3,7 +3,7 @@ import LabelCard from "./LabelCard.tsx";
 
 type LabelListProps = {
     labelOrders: LabelOrder[],
-    onValueChange: (param: keyof Label | "labelRollsOrdered", value: number | string) => void,
+    onValueChange: (id: number, param: keyof Label | "labelRollsOrdered", value: number | string) => void,
     onAddButtonClicked: () => void,
     onRemoveButtonClicked: (labelOrder: LabelOrder) => void
 }
