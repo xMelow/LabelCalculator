@@ -1,7 +1,7 @@
 import type {CalculationResult, ClientOrder, LabelBreakdown} from "../types/label.ts";
 
 export function calculateFolieAmount(order: ClientOrder): CalculationResult {
-    const result: CalculationResult = { foilNeeded: 0, foilRollsNeeded: 0, foilEfficiency: 0, foilLastUsedPercentage: 0, breakDown: [] };
+    const result: CalculationResult = { foilNeeded: 0, foilRollsNeeded: 0, foilLastUsedNumber: 0, foilLastUsedPercentage: 0, breakDown: [] };
     const labelBreakdowns: LabelBreakdown[] = []
     let totalFoilNeeded = 0;
 
@@ -11,10 +11,14 @@ export function calculateFolieAmount(order: ClientOrder): CalculationResult {
         totalFoilNeeded += labelRolTotalHeight;
 
         const foilRollsNeededCurrentLabel = Math.ceil(labelRolTotalHeight / order.foilLength);
+        const foilPerLabelRoll = labelRolTotalHeight / labelOrder.labelRollsOrdered
+        const labelRollsForFullFoil = Math.ceil(order.foilLength / foilPerLabelRoll)
 
         const breakdown: LabelBreakdown = {
             articleNumber: labelOrder.label.articleNumber,
-            foilUsed: labelRolTotalHeight,
+            orderedAmount: labelOrder.labelRollsOrdered,
+            labelRollsForFullFoil: labelRollsForFullFoil,
+            foilUsed: Number((labelRolTotalHeight / 1000).toFixed()),
             foilRollsNeeded: foilRollsNeededCurrentLabel,
             foilUsedPercentage: 0
         }
@@ -26,11 +30,11 @@ export function calculateFolieAmount(order: ClientOrder): CalculationResult {
     })
 
     result.breakDown = labelBreakdowns
-    result.foilNeeded = totalFoilNeeded
+    result.foilNeeded = Number((totalFoilNeeded / 1000).toFixed())
     result.foilRollsNeeded = Math.ceil(totalFoilNeeded / order.foilLength)
-    result.foilEfficiency = totalFoilNeeded / (result.foilRollsNeeded * order.foilLength) * 100
     const lastRollUsed = totalFoilNeeded - (result.foilRollsNeeded - 1) * order.foilLength
-    result.foilLastUsedPercentage = (lastRollUsed / order.foilLength) * 100
+    result.foilLastUsedNumber = Math.round(lastRollUsed / 1000)
+    result.foilLastUsedPercentage = Math.round((lastRollUsed / order.foilLength) * 100)
 
     return result;
 }

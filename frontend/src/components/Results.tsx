@@ -20,38 +20,38 @@ export default function Results({ calculationResult }: ResultsProps) {
 
             <div className="grid grid-cols-3 gap-4">
                 <div className="bg-altec-light border border-altec-teal rounded-2xl p-4 mb-3">
-                    <p className="text-sm text-gray-500 font-medium">Totale lengte folie</p>
-                    <h3 className="text-xl text-altec-dark font-medium">{(calculationResult.foilNeeded / 1000).toFixed(1)} m</h3>
+                    <p className="text-sm text-gray-500 font-medium">Totale inktfolie verbruik</p>
+                    <h3 className="text-xl text-altec-dark font-medium">{calculationResult.foilNeeded} m</h3>
                 </div>
 
                 <div className="bg-altec-light border border-altec-teal rounded-2xl p-4 mb-3">
-                    <p className="text-sm text-gray-500 font-medium">Totale folie rollen</p>
+                    <p className="text-sm text-gray-500 font-medium">Totaal aantal inktfolies</p>
                     <h3 className="text-xl text-altec-dark font-medium">{calculationResult.foilRollsNeeded}</h3>
                 </div>
 
                 <div className="bg-altec-light border border-altec-teal rounded-2xl p-4 mb-3">
-                    <p className="text-sm text-gray-500 font-medium">Percentage laatst gebruikte folie rol</p>
-                    <h3 className="text-xl text-altec-dark font-medium">{Math.round(calculationResult.foilLastUsedPercentage)} %</h3>
-                </div>
-
-                <div className="bg-altec-light border border-altec-teal rounded-2xl p-4 mb-3">
-                    <p className="text-sm text-gray-500 font-medium">Efficiëntie</p>
-                    <h3 className="text-xl text-altec-dark font-medium">{Math.round(calculationResult.foilEfficiency)} %</h3>
+                    <p className="text-sm text-gray-500 font-medium">Laatste inktfolie verbruik</p>
+                    <div className="flex flex-row justify-between">
+                        <h3 className="text-xl text-altec-dark font-medium">{calculationResult.foilLastUsedNumber} m</h3>
+                        <h3 className="text-xl text-altec-dark font-medium">{calculationResult.foilLastUsedPercentage} %</h3>
+                    </div>
                 </div>
             </div>
             <div className="mt-6">
                 <div className="border-b flex justify-between items-center py-3">
-                    <h3 className="text-sm text-gray-500 font-medium">Artikel nummer</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Aantal folies</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Folie verbruik</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Folie percentage</h3>
+                    <h3 className="text-sm text-gray-500 font-medium">Artikelnummer</h3>
+                    <h3 className="text-sm text-gray-500 font-medium">Besteld</h3>
+                    <h3 className="text-sm text-gray-500 font-medium">Aantal label rollen om 1 inktfolie op te gebruiken</h3>
+                    <h3 className="text-sm text-gray-500 font-medium">Inktfolies nodig</h3>
+                    <h3 className="text-sm text-gray-500 font-medium">Verbruik</h3>
                 </div>
                 {calculationResult.breakDown.map((breakdown) => (
                     <div key={breakdown.articleNumber} className="flex justify-between items-center py-3">
                         <p className="text-sm text-altec-dark font-bold">{breakdown.articleNumber}</p>
+                        <p className="text-sm text-altec-dark font-bold">{breakdown.orderedAmount}</p>
+                        <p className="text-sm text-altec-dark font-bold">{breakdown.labelRollsForFullFoil}</p>
                         <p className="text-sm text-altec-dark font-bold">{breakdown.foilRollsNeeded}</p>
-                        <p className="text-sm text-altec-dark font-medium">{(breakdown.foilUsed / 1000).toFixed(1)} m</p>
-                        <p className="text-sm text-altec-dark font-medium">{Math.round(breakdown.foilUsedPercentage)} %</p>
+                        <p className="text-sm text-altec-dark font-medium">{breakdown.foilUsed}m ({breakdown.foilUsedPercentage}%)</p>
                     </div>
                 ))}
             </div>

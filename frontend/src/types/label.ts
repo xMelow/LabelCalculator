@@ -22,13 +22,15 @@ export type ClientOrder = {
 export type CalculationResult = {
     foilNeeded: number,
     foilRollsNeeded: number,
-    foilEfficiency: number,
     foilLastUsedPercentage: number,
+    foilLastUsedNumber: number,
     breakDown: LabelBreakdown[]
 }
 
 export type LabelBreakdown = {
     articleNumber: string,
+    orderedAmount: number,
+    labelRollsForFullFoil: number,
     foilUsed: number,
     foilRollsNeeded: number,
     foilUsedPercentage: number

@@ -19,7 +19,7 @@ export default function App() {
             id: nextId,
             labelRollsOrdered: 1,
             label: {
-                articleNumber: "",
+                articleNumber: "Nieuw label",
                 height: 0,
                 width: 0,
                 gap: 0,
@@ -27,7 +27,7 @@ export default function App() {
                 totalLabels: 0,
             }
         }
-        setClientOrder({...clientOrder, labelOrders: [...clientOrder.labelOrders, newOrder]})
+        setClientOrder({...clientOrder, labelOrders: [newOrder, ...clientOrder.labelOrders] })
         nextId += 1;
     }
 
@@ -54,7 +54,7 @@ export default function App() {
             <header className="bg-altec-teal px-8 py-4 shadow-md flex items-center justify-between">
                 <div>
                     <h1 className="text-white text-4xl font-bold tracking-wide">
-                        Inkt Folie Calculator
+                        Inktfolie Calculator
                     </h1>
                 </div>
                 <img src="/src/assets/logo2.png" alt="logo" className="h-17 w-auto"/>

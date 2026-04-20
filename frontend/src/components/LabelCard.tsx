@@ -19,11 +19,11 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
 
             <div className="grid grid-cols-3 gap-4">
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Artikel nummer</label>
+                    <label className="input-label">Artikelnummer</label>
                     <input
                         className="input-field"
                         type={"text"}
-                        value={labelOrder.label.articleNumber}
+                        value={labelOrder.label.articleNumber === "Nieuw label" ? "" : labelOrder.label.articleNumber}
                         onChange={(e) => onValueChange(labelOrder.id, "articleNumber", e.target.value)}
                     />
                 </div>
@@ -53,13 +53,13 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                     <input
                         className="input-field"
                         type={"number"}
-                        value={labelOrder.label.labelsPerRow}
+                        value={labelOrder.label.labelsPerRow === 0 ? "" : labelOrder.label.labelsPerRow}
                         onChange={(e) => onValueChange(labelOrder.id, "labelsPerRow",Number(e.target.value))}
                     />
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Totaal labels per rol</label>
+                    <label className="input-label">Totaal aantal labels per rol</label>
                     <input
                         className="input-field"
                         type={"number"}
@@ -69,11 +69,11 @@ export default function LabelCard({labelOrder, onValueChange, onRemoveButtonClic
                 </div>
 
                 <div className="flex flex-col gap-1 mt-4">
-                    <label className="input-label">Rolen besteld</label>
+                    <label className="input-label">Rollen besteld</label>
                     <input
                         className="input-field"
                         type={"number"}
-                        value={labelOrder.labelRollsOrdered}
+                        value={labelOrder.labelRollsOrdered === 0 ? "" : labelOrder.labelRollsOrdered}
                         onChange={(e) => onValueChange(labelOrder.id, "labelRollsOrdered", Number(e.target.value))}
                     />
                 </div>
