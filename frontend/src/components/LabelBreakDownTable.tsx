@@ -10,11 +10,31 @@ export default function LabelBreakdownTable({ labelBreakDownList }: LabelBreakdo
             <thead>
             <tr>
                 <th className="table-header">Artikelnummer</th>
-                <th className="table-header">Besteld</th>
-                <th className="table-header">Rollen/folie</th>
-                <th className="table-header">Inktolies</th>
-                <th className="table-header">Verbruik (m)</th>
-                <th className="table-header">Verbruik (%)</th>
+                <th className="table-header relative group">Besteld
+                    <span className="absolute hidden group-hover:block bottom-full left-0 bg-altec-dark text-white text-xs rounded px-2 py-3 w-48 z-10">
+                        Aantal label rollen die de klant heeft besteld.
+                    </span>
+                </th>
+                <th className="table-header relative group">Rollen/folie
+                    <span className="absolute hidden group-hover:block bottom-full left-0 bg-altec-dark text-white text-xs rounded px-2 py-3 w-48 z-10">
+                        Aantal label rollen nodig om 1 inktfolie zo veel mogelijk te gebruiken.
+                    </span>
+                </th>
+                <th className="table-header relative group">Inktolies
+                    <span className="absolute hidden group-hover:block bottom-full left-0 bg-altec-dark text-white text-xs rounded px-2 py-3 w-48 z-10">
+                        Aantal inktfolies nodig om alle labels te kunnen printen.
+                    </span>
+                </th>
+                <th className="table-header relative group">Verbruik (m)
+                    <span className="absolute hidden group-hover:block bottom-full left-0 bg-altec-dark text-white text-xs rounded px-2 py-3 w-48 z-10">
+                        Totaal inktfolie verbruik in m van dit artikel.
+                    </span>
+                </th>
+                <th className="table-header relative group">Verbruik (%)
+                    <span className="absolute hidden group-hover:block bottom-full left-0 bg-altec-dark text-white text-xs rounded px-2 py-3 w-48 z-10">
+                        Totaal inktfolie verbruik in % van dit artikel.
+                    </span>
+                </th>
             </tr>
             </thead>
             <tbody>
