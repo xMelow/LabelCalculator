@@ -15,4 +15,12 @@
   .input-label {
     @apply text-sm text-gray-500 font-medium;
   }
+
+  .table-header {
+    @apply text-left text-sm text-gray-500 font-medium pb-3 border-b border-gray-100;
+  }
+
+  .table-cell {
+    @apply py-3 text-sm text-altec-dark;
+  }
 }

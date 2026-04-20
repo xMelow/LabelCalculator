@@ -1,4 +1,5 @@
 import type {CalculationResult} from "../types/label.ts";
+import LabelBreakdownTable from "./LabelBreakDownTable.tsx";
 
 type ResultsProps = {
     calculationResult: CalculationResult
@@ -38,22 +39,7 @@ export default function Results({ calculationResult }: ResultsProps) {
                 </div>
             </div>
             <div className="mt-6">
-                <div className="border-b flex justify-between items-center py-3">
-                    <h3 className="text-sm text-gray-500 font-medium">Artikelnummer</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Besteld</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Aantal label rollen om 1 inktfolie op te gebruiken</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Inktfolies nodig</h3>
-                    <h3 className="text-sm text-gray-500 font-medium">Verbruik</h3>
-                </div>
-                {calculationResult.breakDown.map((breakdown) => (
-                    <div key={breakdown.articleNumber} className="flex justify-between items-center py-3">
-                        <p className="text-sm text-altec-dark font-bold">{breakdown.articleNumber}</p>
-                        <p className="text-sm text-altec-dark font-bold">{breakdown.orderedAmount}</p>
-                        <p className="text-sm text-altec-dark font-bold">{breakdown.labelRollsForFullFoil}</p>
-                        <p className="text-sm text-altec-dark font-bold">{breakdown.foilRollsNeeded}</p>
-                        <p className="text-sm text-altec-dark font-medium">{breakdown.foilUsed}m ({breakdown.foilUsedPercentage}%)</p>
-                    </div>
-                ))}
+                <LabelBreakdownTable labelBreakDownList={calculationResult.breakDown} />
             </div>
         </div>
     )

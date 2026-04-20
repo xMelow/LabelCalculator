@@ -18,7 +18,7 @@ export function calculateFolieAmount(order: ClientOrder): CalculationResult {
             articleNumber: labelOrder.label.articleNumber,
             orderedAmount: labelOrder.labelRollsOrdered,
             labelRollsForFullFoil: labelRollsForFullFoil,
-            foilUsed: Number((labelRolTotalHeight / 1000).toFixed()),
+            foilUsed: labelRolTotalHeight,
             foilRollsNeeded: foilRollsNeededCurrentLabel,
             foilUsedPercentage: 0
         }
