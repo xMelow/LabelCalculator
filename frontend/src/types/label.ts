@@ -31,6 +31,7 @@ export type LabelBreakdown = {
     articleNumber: string,
     orderedAmount: number,
     labelRollsForFullFoil: number,
+    labelAmountForFullFoil: number,
     foilUsed: number,
     foilRollsNeeded: number,
     foilUsedPercentage: number

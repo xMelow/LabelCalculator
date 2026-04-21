@@ -12,12 +12,14 @@ export function calculateFolieAmount(order: ClientOrder): CalculationResult {
 
         const foilRollsNeededCurrentLabel = Math.ceil(labelRolTotalHeight / order.foilLength);
         const foilPerLabelRoll = labelRolTotalHeight / labelOrder.labelRollsOrdered
-        const labelRollsForFullFoil = Math.ceil(order.foilLength / foilPerLabelRoll)
+        const labelRollsForFullFoil = Number((order.foilLength / foilPerLabelRoll).toFixed(2))
+        const labelsPerFoilRoll = Math.floor(labelRollsForFullFoil * labelOrder.label.totalLabels)
 
         const breakdown: LabelBreakdown = {
             articleNumber: labelOrder.label.articleNumber,
             orderedAmount: labelOrder.labelRollsOrdered,
             labelRollsForFullFoil: labelRollsForFullFoil,
+            labelAmountForFullFoil: labelsPerFoilRoll,
             foilUsed: labelRolTotalHeight,
             foilRollsNeeded: foilRollsNeededCurrentLabel,
             foilUsedPercentage: 0
