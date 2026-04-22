@@ -4,6 +4,7 @@ import FolieSettings from "./components/FolieSettings.tsx";
 import LabelList from "./components/LabelList.tsx";
 import {calculateFolieAmount} from "./utils/calculator.ts";
 import Results from "./components/Results.tsx";
+import logo from './assets/logo2.png'
 
 let nextId = 0;
 
@@ -57,7 +58,7 @@ export default function App() {
                         Inktfolie Calculator
                     </h1>
                 </div>
-                <img src="/src/assets/logo2.png" alt="logo" className="h-17 w-auto"/>
+                <img src={logo} alt="logo" className="h-17 w-auto"/>
             </header>
 
             <main className="max-w-5xl mx-auto px-6 py-8 flex flex-col gap-6">
